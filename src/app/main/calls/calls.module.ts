@@ -6,14 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { CallsPageRoutingModule } from './calls-routing.module';
 
 import { CallsPage } from './calls.page';
-import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    NgbPopoverModule,
     CallsPageRoutingModule
   ],
   declarations: [CallsPage]

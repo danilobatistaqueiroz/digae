@@ -1,52 +1,9 @@
-<!-- first access configurations -->
-<div class="page firstConfiguration" [ngStyle]="isSlide(1)?{}:{display:'none'}" [ngClass]="page==1?'configurationSlide':''">
-  <ion-img src="assets/screens/first-access/background.png" style="width:100%"/>
-  <ion-img src="assets/screens/first-access/x.png" style="width:6%;position:absolute;top:10px;right:10px" (click)="closeConfigurations()"/>
-  <div style="position:absolute;top:50%;transform:translateY(-65%);width:100%">
-    <ion-img src="assets/screens/first-access/balloons.png" style="width:20%;margin:auto;"/>
-    <ion-img src="assets/screens/first-access/digae.png" style="width:20%;margin:auto;margin-bottom:60px;"/>
-    <ion-img src="assets/screens/first-access/description.png" style="width:70%;margin:auto;"/>
-  </div>
-  <ion-img src="assets/screens/first-access/arrow-next.png" style="width:8%;position:absolute;bottom:10px;right:10px" (click)="next()"/>
-</div>
-<div class="page firstConfiguration" [ngStyle]="isSlide(2)?{}:{display:'none'}" [ngClass]="page==2?'configurationSlide':''">
-  <ion-img src="assets/screens/first-access/background.png" style="width:100%"/>
-  <ion-img src="assets/screens/first-access/x.png" style="width:6%;position:absolute;top:10px;right:10px" (click)="closeConfigurations()"/>
-  <ion-img src="assets/screens/first-access/trash.png" style="width:7%;position:absolute;top:13%;left:10%;"/>
-  <ion-img src="assets/screens/first-access/description-trash.png" style="width:50%;position:absolute;top:14%;left:22%;"/>
-  <ion-img [src]="checkedTrash?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkTrash()" style="width:7%;position:absolute;top:13%;left:80%;"/>
-  <ion-img src="assets/screens/first-access/bookmark.png" style="width:7%;position:absolute;top:33%;left:10%;"/>
-  <ion-img src="assets/screens/first-access/description-bookmark.png" style="width:50%;position:absolute;top:34%;left:22%;"/>
-  <ion-img [src]="checkedBookmark?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkBookmark()" style="width:7%;position:absolute;top:33%;left:80%;"/>
-  <ion-img src="assets/screens/first-access/fire.png" style="width:9%;position:absolute;top:53%;left:9%;"/>
-  <ion-img src="assets/screens/first-access/description-fire.png" style="width:50%;position:absolute;top:55%;left:22%;"/>
-  <ion-img [src]="checkedFire?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkFire()" style="width:7%;position:absolute;top:54%;left:80%;"/>
-  <ion-img src="assets/screens/first-access/money.png" style="width:9%;position:absolute;top:74%;left:9%;"/>
-  <ion-img src="assets/screens/first-access/description-money.png" style="width:50%;position:absolute;top:76%;left:22%;"/>
-  <ion-img [src]="checkedMoney?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkMoney()" style="width:7%;position:absolute;top:75%;left:80%;"/>
-  <ion-img src="assets/screens/first-access/ok.png" style="width:8%;position:absolute;bottom:10px;right:10px" (click)="next()"/>
-</div>
-<div class="page firstConfiguration" [ngStyle]="isSlide(3)?{}:{display:'none'}" [ngClass]="page==3?'configurationSlide':''">
-  <ion-img src="assets/screens/first-access/background.png" style="width:100%"/>
-  <ion-img src="assets/screens/first-access/x.png" style="width:6%;position:absolute;top:10px;right:10px" (click)="closeConfigurations()"/>
-  <ion-img src="assets/screens/first-access/trash.png" style="width:7%;position:absolute;top:13%;left:10%;"/>
-  <ion-img src="assets/screens/first-access/description-trash.png" style="width:50%;position:absolute;top:14%;left:22%;"/>
-  <ion-img [src]="checkedTrash?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkTrash()" style="width:7%;position:absolute;top:13%;left:80%;"/>
-  <ion-img src="assets/screens/first-access/bookmark.png" style="width:7%;position:absolute;top:33%;left:10%;"/>
-  <ion-img src="assets/screens/first-access/description-bookmark.png" style="width:50%;position:absolute;top:34%;left:22%;"/>
-  <ion-img [src]="checkedBookmark?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkBookmark()" style="width:7%;position:absolute;top:33%;left:80%;"/>
-  <ion-img src="assets/screens/first-access/fire.png" style="width:9%;position:absolute;top:53%;left:9%;"/>
-  <ion-img src="assets/screens/first-access/description-fire.png" style="width:50%;position:absolute;top:55%;left:22%;"/>
-  <ion-img [src]="checkedFire?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkFire()" style="width:7%;position:absolute;top:54%;left:80%;"/>
-  <ion-img src="assets/screens/first-access/money.png" style="width:9%;position:absolute;top:74%;left:9%;"/>
-  <ion-img src="assets/screens/first-access/description-money.png" style="width:50%;position:absolute;top:76%;left:22%;"/>
-  <ion-img [src]="checkedMoney?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkMoney()" style="width:7%;position:absolute;top:75%;left:80%;"/>
-  <ion-img src="assets/screens/first-access/ok.png" style="width:8%;position:absolute;bottom:10px;right:10px" (click)="closeConfigurations()"/>
-</div>
-<!-- first access configurations -->
+<app-first-configurations></app-first-configurations>
+
+<app-scenes></app-scenes>
 
 <ion-tabs id="topTabs">
-  <ion-tab-bar slot="top" style="height:100px;" [ngStyle]="tutoPopovers.isTutorial()?{'z-index':'-1'}:{}">
+  <ion-tab-bar slot="top" style="height:100px;" [ngStyle]="preferences.isTutorial?{'z-index':'-1'}:{}">
     <ion-grid>
       <ion-row class="icons ion-justify-content-between" style="padding-top:15px;">
         <ion-col size="4" style="padding: 15px 0">
@@ -80,7 +37,7 @@
         <ion-item [button]="true" [detail]="false">Novo grupo</ion-item>
         <ion-item [button]="true" [detail]="false">Mensagens favoritas</ion-item>
         <ion-item [button]="true" [detail]="false">Pagamentos</ion-item>
-        <ion-item [button]="true" [detail]="false">Configurações</ion-item>
+        <ion-item [button]="true" [detail]="false" (click)="openConfigurations()">Configurações</ion-item>
       </ion-list>
     </ion-content>
   </ng-template>
@@ -88,8 +45,3 @@
 <!-- ellipsis menu -->
 
 
-<button type="button" name="btHiddenTabCalls" placement="left" ngbPopover={{tutoPopovers.txtTabCalls}}></button>
-<button type="button" name="btHiddenTabChats" placement="top" ngbPopover={{tutoPopovers.txtTabChats}}></button>
-
-
-<app-scene></app-scene>

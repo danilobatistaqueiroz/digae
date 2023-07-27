@@ -1,0 +1,40 @@
+  <div class="page-first-configuration slide-first-access" [ngStyle]="isSlide(1)?{}:{display:'none'}" [ngClass]="page==1?'animate-slide':''">
+    <ion-img src="assets/screens/first-access/background.png" style="width:100%"/>
+    <ion-img src="assets/screens/first-access/x.png" style="width:6%;position:absolute;top:10px;right:10px" (click)="closeConfigurations()"/>
+    <div style="position:absolute;top:50%;transform:translateY(-65%);width:100%">
+      <ion-img src="assets/screens/first-access/balloons.png" style="width:20%;margin:auto;"/>
+      <ion-img src="assets/screens/first-access/digae.png" style="width:20%;margin:auto;margin-bottom:60px;"/>
+      <ion-img src="assets/screens/first-access/description.png" style="width:70%;margin:auto;"/>
+    </div>
+    <ion-img src="assets/screens/first-access/arrow-next.png" style="width:8%;position:absolute;bottom:10px;right:10px" (click)="next()"/>
+  </div>
+  <div class="page-first-configuration slide-first-access" [ngStyle]="isSlide(2)?{}:{display:'none'}" [ngClass]="page==2?'animate-slide':''">
+    <ion-img src="assets/screens/first-access/background.png" style="width:100%"/>
+    <ion-img src="assets/screens/first-access/x.png" style="width:6%;position:absolute;top:10px;right:10px" (click)="closeConfigurations()"/>
+    <ion-img src="assets/screens/first-access/trash.png" style="width:7%;position:absolute;top:13%;left:10%;"/>
+    <ion-img src="assets/screens/first-access/description-trash.png" style="width:50%;position:absolute;top:14%;left:22%;"/>
+    <ion-img [src]="checkedTrash?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkTrash()" style="width:7%;position:absolute;top:13%;left:80%;"/>
+    <ion-img src="assets/screens/first-access/bookmark.png" style="width:7%;position:absolute;top:33%;left:10%;"/>
+    <ion-img src="assets/screens/first-access/description-bookmark.png" style="width:50%;position:absolute;top:34%;left:22%;"/>
+    <ion-img [src]="checkedBookmark?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkBookmark()" style="width:7%;position:absolute;top:33%;left:80%;"/>
+    <ion-img src="assets/screens/first-access/fire.png" style="width:9%;position:absolute;top:53%;left:9%;"/>
+    <ion-img src="assets/screens/first-access/description-fire.png" style="width:50%;position:absolute;top:55%;left:22%;"/>
+    <ion-img [src]="checkedFire?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkFire()" style="width:7%;position:absolute;top:54%;left:80%;"/>
+    <ion-img src="assets/screens/first-access/money.png" style="width:9%;position:absolute;top:74%;left:9%;"/>
+    <ion-img src="assets/screens/first-access/description-money.png" style="width:50%;position:absolute;top:76%;left:22%;"/>
+    <ion-img [src]="checkedMoney?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkMoney()" style="width:7%;position:absolute;top:75%;left:80%;"/>
+    <ion-img src="assets/screens/first-access/arrow-next.png" style="width:8%;position:absolute;bottom:10px;right:10px" (click)="next()"/>
+  </div>
+  <div class="page-first-configuration slide-first-access" [ngStyle]="isSlide(3)?{}:{display:'none'}" [ngClass]="page==3?'animate-slide':''">
+    <ion-img src="assets/screens/first-access/background.png" style="width:100%"/>
+    <ion-img src="assets/screens/first-access/x.png" style="width:6%;position:absolute;top:10px;right:10px" (click)="closeConfigurations()"/>
+    <ion-img src="assets/screens/first-access/crypto-chats.png" style="width:96%;position:absolute;top:14%;left:2%;"/>
+    <ion-img src="assets/screens/first-access/secure-messages.png" style="width:50%;position:absolute;top:27%;left:22%;"/>
+    <ion-img src="assets/screens/first-access/lock.png" style="width:7%;position:absolute;top:27%;left:10%;"/>
+    <ion-img [src]="checkedLock?'assets/screens/first-access/check-option.png':'assets/screens/first-access/unchecked-option.png'" (click)="checkLock()" 
+      style="width:7%;position:absolute;top:27%;left:80%;"/>
+    <ion-input *ngIf="checkedLock" aria-label="Insira uma senhat" color="light" placeholder="Insira uma senha"
+      style="opacity:1;width:50%;position:absolute;top:32%;left:26%;background-color:none"
+    ></ion-input>
+    <ion-img src="assets/screens/first-access/ok.png" style="width:8%;position:absolute;bottom:10px;right:10px" (click)="closeConfigurations()"/>
+  </div>

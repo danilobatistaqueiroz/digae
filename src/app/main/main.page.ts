@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { TutoPopovers } from '../tutorial/tuto-popovers';
+import { PreferencesService } from '../services/preferences.service';
+import { ConfigurationsComponent } from './modals/configurations/configurations.component';
+import { IonModal, ModalController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-main',
@@ -15,8 +17,7 @@ export class MainPage implements OnInit, AfterViewInit {
   @ViewChild('inicial') inicial!: ElementRef;
   @ViewChild('popover') popover!: any;
 
-  closeResult = '';
-  page:number=0;
+
 
   tutorialText:string='';
 
@@ -57,38 +58,45 @@ export class MainPage implements OnInit, AfterViewInit {
     {id:29,img:"woman.png",txt:"Today!",active:false,unread:false},
   ];
 
-  checkedTrash:boolean=false;
-  checkedBookmark:boolean=true;
-  checkedFire:boolean=true;
-  checkedMoney:boolean=false;
+  constructor(public preferences: PreferencesService, private router: Router, private modalCtrl: ModalController) { }
 
-  constructor(public tutoPopovers: TutoPopovers, private modalService: NgbModal, private router: Router) { }
+
+
+  async openConfigurations() {
+    const modal = await this.modalCtrl.create({
+      component: ConfigurationsComponent,
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+    if (role === 'confirm') {
+      let startup:boolean = data;
+      this.preferences.setFirstConfiguration(String(startup));
+      this.preferences.setTutorial(String(startup));
+      this.preferences.isFirstConfiguration=false;
+      this.preferences.isTutorial=false;
+    }
+  }
+
+
+  tutorialStatus!: boolean;
+
+  firstConfigFinished($event:any) {
+    this.tutorialStatus = true;
+  }
 
   ngAfterViewInit(): void {
-    setTimeout(()=>this.page=1,1300);
+    
   }
 
   ngOnInit(): void {
+
   }
 
   tutoImg:string="assets/tutorial/avatar.png";
 
-  closeConfigurations() {
-    this.tutoPopovers.finishConfiguration();
-    setTimeout(()=>this.tutoPopovers.initTutorial(),1000);
-    //setTimeout(()=>this.open(''),2000);
-  }
-
   newMessage(){
     this.router.navigate(['contacts']);
-  }
-
-  next(){
-    this.page+=1;
-  }
-
-  isSlide(page:number){
-    return (this.tutoPopovers.isFirstConfiguration() && this.page==page);
   }
 
   selectChat(avatar:any){
@@ -99,38 +107,8 @@ export class MainPage implements OnInit, AfterViewInit {
     },500);
   }
 
-  checkTrash(){
-    this.checkedTrash=!this.checkedTrash;
-  }
-  checkBookmark() {
-    this.checkedBookmark=!this.checkedBookmark;
-  }
-  checkFire() {
-    this.checkedFire=!this.checkedFire;
-  }
-  checkMoney() {
-    this.checkedMoney=!this.checkedMoney;
-  }
+  settings(){
 
-  open(content: any) {
-    this.modalService.open(content, { fullscreen: true, ariaLabelledBy: 'modal-basic-title' }).result.then(
-      (result) => {
-        this.closeResult = `Closed with: ${result}`;
-      },
-      (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      },
-    );
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
   }
 
 }

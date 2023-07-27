@@ -1,0 +1,47 @@
+.page-first-configuration {
+  max-width:500px;
+  margin:auto;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.slide-first-access {
+  padding-top:-50px;
+  z-index:1;
+  background: #d94e4e;
+  left:-100%;
+}
+
+@-webkit-keyframes slide-to-right{
+  from{left:-100%}
+  to{left:50%}
+}
+@keyframes slide-to-right{
+  from{left:-100%}
+  to{left:50%}
+}
+
+.animate-slide {
+  -webkit-animation: slide-to-right 0.7s linear forwards;
+  animation: slide-to-right 0.7s linear forwards;
+  z-index:10;
+  transform: translateX(-50%);
+}
+
+ion-grid {
+  --ion-grid-column-padding:0px;
+  --ion-grid-padding:0px;
+}
+
+.space-between { 
+  justify-content: space-between; 
+}
+
+
+ion-input {
+  --padding-bottom:0px;
+  --highlight-color-focused:white;
+  --border-color:white;
+  --highlight-color:white;
+}

@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -9,11 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { PreferencesService } from './services/preferences.service';
 import { ContactsService } from './services/contacts.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { CallsService } from './services/calls.service';
 import { ChatsService } from './services/chats.service';
-import { TutoPopovers } from './tutorial/tuto-popovers';
 
 export function initializeFactory(init: PreferencesService) {
   return () => init.InitializeFirstAccess();
@@ -21,13 +19,12 @@ export function initializeFactory(init: PreferencesService) {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, NgbModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     PreferencesService,
     ContactsService,
     CallsService,
     ChatsService,
-    TutoPopovers,
     { provide: APP_INITIALIZER,
       useFactory: initializeFactory,
       deps: [PreferencesService],
@@ -35,5 +32,6 @@ export function initializeFactory(init: PreferencesService) {
     },
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

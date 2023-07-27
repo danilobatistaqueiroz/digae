@@ -1,24 +1,24 @@
 /** list of messages **/
-#content {
+#chat-content {
   max-width:500px;
   width:100%;
   margin:auto !important;
 }
-#content li {
+#chat-content li {
   cursor:pointer;
 }
-#content li img {
+#chat-content li img {
   width:2rem; margin-right:1rem;
 }
-#content ul {
+#chat-content ul {
   list-style-type: none; border-radius:3px;
   padding-top:0.3rem; padding-left:0.1rem;
 }
-#content li {
+#chat-content li {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   border-radius:3px; padding-left:0.3rem;
 }
-#content div {
+#chat-content div {
   display:inline;
 }
 .fades {

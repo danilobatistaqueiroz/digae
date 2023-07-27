@@ -1,6 +1,6 @@
 <!-- list of contacts and messages -->
 <div id="content">
-  <ul [ngClass]="call.active?'fades':''" [ngClass]="call.unread?'unread':''" style="z-index:-1" *ngFor="let call of calls;">
+  <ul [ngClass]="call.active?'fades':''" [ngClass]="call.unread?'unread':''" style="z-index:-1" *ngFor="let call of calls; let i = index">
     <li (click)="selectCall(call)" style="height:45px;">
       <div style="display:flex;flex-direction:row;justify-content:space-between;">
         <div style="align-self:center">
@@ -16,12 +16,11 @@
         </div>
         <div style="margin-right:0.8rem;align-self:center" class="present-alert">
           <ion-button (click)="presentAlert(call)" fill="clear">
-            <ion-icon name="call-outline" style="color:green"></ion-icon>
+            <ion-icon id='phone{{i}}' name="call-outline" style="color:green"></ion-icon>
           </ion-button>
         </div>
       </div>
     </li>
   </ul>
 </div>
-<button type="button" id="btHiddenDetailCall" placement="left" ngbPopover={{tutoPopovers.txtDetailCall}} ></button>
 <!-- list of contacts and messages -->

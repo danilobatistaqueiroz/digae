@@ -7,19 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { MainPageRoutingModule } from './main-routing.module';
 
 import { MainPage } from './main.page';
-import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ScenesComponent } from '../tutorial/scenes/scenes.component';
+import { FirstConfigurationsComponent } from '../tutorial/first-configurations/first-configurations.component';
+import { ConfigurationsComponent } from './modals/configurations/configurations.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NgbPopoverModule,
     MainPageRoutingModule
   ],
-  declarations: [MainPage, ScenesComponent],
+  declarations: [MainPage, FirstConfigurationsComponent, ConfigurationsComponent, ScenesComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MainPageModule {}

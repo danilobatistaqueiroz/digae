@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Contact } from '../models/contact';
-import { Observable, Observer, Subscription, of } from 'rxjs';
+import { BehaviorSubject, Observable, Observer, Subscription, of } from 'rxjs';
+import { from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Chat } from '../models/chat';
 
@@ -39,10 +40,13 @@ export class ChatsService {
     {id:29,img:"woman.png",msg:"Today!",active:false,unread:false},
   ];
 
-  myObservable:Observable<Chat[]> = of(this.chats);
+  myObservable:Observable<Chat> = from(this.chats);
 
-  getChats():Observable<Chat[]> {
+  getChats():Observable<Chat> {
     return this.myObservable;
   }
+
+  lastChatItem = new BehaviorSubject(0);
+  lastChatItemNotify = this.lastChatItem.asObservable();
 
 }

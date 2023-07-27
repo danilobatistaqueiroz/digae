@@ -1,8 +1,8 @@
 <!-- list of contacts and messages -->
-<div id="content" [ngStyle]="tutoPopovers.isTutorial()?{overflow:'hidden'}:{overflow:'auto'}">
+<div id="chat-content" [ngStyle]="preferences.isTutorial?{overflow:'hidden'}:{overflow:'auto'}">
   <ul [ngClass]="chat.active?'fades':''" [ngClass]="chat.unread?'unread':''" style="z-index:-1" *ngFor="let chat of chats">
     <li (click)="selectChat(chat)">
-      <img src="assets/avatars/{{chat.img}}"/><div>{{chat.msg}}</div>
+      <img src="assets/avatars/{{chat.img}}" id="chat{{chat.id}}"/><div>{{chat.msg}}</div>
     </li>
   </ul>
 </div>
@@ -18,6 +18,3 @@
     <div style="width:auto"></div>
   </div>
 </div>
-
-<button id="btHiddenDetailChat" placement="end" ngbPopover={{tutoPopovers.txtDetailChat}}></button>
-<button id="btHiddenFloatNewMsg" placement="left" ngbPopover={{tutoPopovers.txtFloatNewMsg}}></button>

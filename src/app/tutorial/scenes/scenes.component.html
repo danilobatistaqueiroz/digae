@@ -1,6 +1,13 @@
-<div id="backdrop-box" *ngIf="backdropVisible" (click)="nextScene()">
-  <img id="scene-img">
-  <div class="popover-content popover-arrow">
-    <p class="popover-message">envie mensagens para teus amigos</p>
+
+<div id="backdrop-box" *ngIf="backdropVisible && isBeginning==false && preferences.isTutorial && preferences.isFirstConfiguration==false" (click)="nextScene()">
+  <img id="scene-img" style="opacity:0">
+  <div class="popover-content popover-arrow" style="opacity:0">
+    <p class="popover-message">{{popoverMessage}}</p>
   </div>
 </div>
+
+<img id="beginning" src="assets/tutorial/beginning.png" class="page-scene page-beginning" 
+*ngIf="preferences.isTutorial && preferences.isFirstConfiguration==false"
+style="width:100%"
+[ngClass]="isBeginning?'slide-beginning':''"
+[ngClass]="back?'slide-back':''">

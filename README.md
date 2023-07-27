@@ -1,3 +1,10 @@
+
+[![screen-shot](https://user-images.githubusercontent.com/32627919/255275735-c033f65d-1a69-4b70-aa7c-1f16c5d76d77.png)](https://user-images.githubusercontent.com/32627919/255270715-8e4fe8a2-3b25-49ca-81fa-3d94c73ddcca.mp4)
+
+[![screen-cast](https://user-images.githubusercontent.com/32627919/255298661-b99a89aa-aaa0-4630-ba46-1f5adffe780e.png)](https://user-images.githubusercontent.com/32627919/255298622-46c6fd1f-18fd-4d70-82ea-de066d91fd46.mp4)
+
+
+
 ionic start whatsclone blank --type=angular --capacitor --project-id=whatsclone --package-id=br.labs.whatsclone
 
 
@@ -22,13 +29,21 @@ Depois peguei apenas o background e exportei png.
 Abri no Gimp, e recortei os textos, logo e gerei layers com transparência.  
 Exportei cada layer como um png com background transparente.  
 
+Os textos usei a fonte Fredoka no Gimp
 
 Removi da tela o scrollbar.  
 Cada tab que corre da esquerda para a direita muda o z-index.  
 
+Os Slides de First-Access foram feitos com:  
+https://hotpot.ai/templates/splash-screen
+
 
 Adicionei avatars:  
 https://www.flaticon.com/free-icons/avatar/6
+
+
+
+adb shell am start -n "br.labs.whatsclone/br.labs.whatsclone.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER;
 
 
 ```html
