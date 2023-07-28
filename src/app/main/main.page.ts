@@ -60,8 +60,6 @@ export class MainPage implements OnInit, AfterViewInit {
 
   constructor(public preferences: PreferencesService, private router: Router, private modalCtrl: ModalController) { }
 
-
-
   async openConfigurations() {
     const modal = await this.modalCtrl.create({
       component: ConfigurationsComponent,
@@ -72,12 +70,9 @@ export class MainPage implements OnInit, AfterViewInit {
     if (role === 'confirm') {
       let startup:boolean = data;
       this.preferences.setFirstConfiguration(String(startup));
-      this.preferences.setTutorial(String(startup));
       this.preferences.isFirstConfiguration=false;
-      this.preferences.isTutorial=false;
     }
   }
-
 
   tutorialStatus!: boolean;
 
@@ -86,11 +81,11 @@ export class MainPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    
+   
   }
 
   ngOnInit(): void {
-
+    console.log('url:',this.router.url);
   }
 
   tutoImg:string="assets/tutorial/avatar.png";

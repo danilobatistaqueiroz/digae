@@ -1,8 +1,8 @@
 <!-- list of contacts and messages -->
-<div id="chat-content" [ngStyle]="preferences.isTutorial?{overflow:'hidden'}:{overflow:'auto'}">
-  <ul [ngClass]="chat.active?'fades':''" [ngClass]="chat.unread?'unread':''" style="z-index:-1" *ngFor="let chat of chats">
+<div id="chat-content" [ngStyle]="preferences.isFirstConfiguration?{overflow:'hidden'}:{overflow:'auto'}">
+  <ul [ngClass]="chat.active?'fades':''" [ngClass]="chat.unread?'unread':''" style="z-index:-1" *ngFor="let chat of chats; let i = index">
     <li (click)="selectChat(chat)">
-      <img src="assets/avatars/{{chat.img}}" id="chat{{chat.id}}"/><div>{{chat.msg}}</div>
+      <img src="assets/avatars/{{chat.img}}" id="chat{{i}}"/><div>{{chat.msg}}</div>
     </li>
   </ul>
 </div>

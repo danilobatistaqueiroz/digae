@@ -8,9 +8,8 @@ import { MainPageRoutingModule } from './main-routing.module';
 
 import { MainPage } from './main.page';
 
-import { ScenesComponent } from '../tutorial/scenes/scenes.component';
-import { FirstConfigurationsComponent } from '../tutorial/first-configurations/first-configurations.component';
 import { ConfigurationsComponent } from './modals/configurations/configurations.component';
+import { FirstConfigurationsComponent } from '../tutorial/first-configurations/first-configurations.component';
 
 @NgModule({
   imports: [
@@ -19,7 +18,7 @@ import { ConfigurationsComponent } from './modals/configurations/configurations.
     IonicModule,
     MainPageRoutingModule
   ],
-  declarations: [MainPage, FirstConfigurationsComponent, ConfigurationsComponent, ScenesComponent],
+  declarations: [MainPage, ConfigurationsComponent, FirstConfigurationsComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MainPageModule {}

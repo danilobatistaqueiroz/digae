@@ -14,7 +14,7 @@ import { CallsService } from './services/calls.service';
 import { ChatsService } from './services/chats.service';
 
 export function initializeFactory(init: PreferencesService) {
-  return () => init.InitializeFirstAccess();
+  return () => init.initialize();
 }
 
 @NgModule({

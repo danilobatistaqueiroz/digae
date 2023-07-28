@@ -1,9 +1,7 @@
 <app-first-configurations></app-first-configurations>
 
-<app-scenes></app-scenes>
-
 <ion-tabs id="topTabs">
-  <ion-tab-bar slot="top" style="height:100px;" [ngStyle]="preferences.isTutorial?{'z-index':'-1'}:{}">
+  <ion-tab-bar slot="top" style="height:100px;" [ngStyle]="preferences.isFirstConfiguration?{'z-index':'-1'}:{}">
     <ion-grid>
       <ion-row class="icons ion-justify-content-between" style="padding-top:15px;">
         <ion-col size="4" style="padding: 15px 0">

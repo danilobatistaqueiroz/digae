@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { PreferencesService } from 'src/app/services/preferences.service';
 
 @Component({
   selector: 'app-configurations',
@@ -10,9 +11,11 @@ export class ConfigurationsComponent  implements OnInit {
 
   tutorialStartup:boolean=false;
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController,private preferences:PreferencesService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.tutorialStartup = this.preferences.isFirstConfiguration;
+  }
 
   cancel() {
     return this.modalCtrl.dismiss(null, 'cancel');
@@ -22,7 +25,7 @@ export class ConfigurationsComponent  implements OnInit {
     return this.modalCtrl.dismiss(this.tutorialStartup, 'confirm');
   }
 
-  checkStartup(){
-    this.tutorialStartup = !this.tutorialStartup;
+  checkStartup(event:any){
+    this.tutorialStartup = event.detail.checked;
   }
 }

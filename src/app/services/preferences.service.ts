@@ -1,35 +1,32 @@
-import { Injectable } from '@angular/core';
-import { GetResult, Preferences } from '@capacitor/preferences';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Preferences } from '@capacitor/preferences';
 
 @Injectable()
 export class PreferencesService {
 
-  isTutorial:boolean=false;
-  isFirstConfiguration:boolean=true;
+  isFirstConfiguration:boolean=false;
 
-  private tutorialStatus = new BehaviorSubject(false);
-  tutorialStatusChange = this.tutorialStatus.asObservable();
-  
-  async InitializeFirstAccess() {
-    let tuto:GetResult = await Preferences.get({ key: 'tutorial' });
-    if(tuto.value)
-      this.isTutorial = (tuto.value==="true");
-
-    let config:GetResult = await Preferences.get({ key: 'first-configuration' });
-    if(config.value)
-      this.isFirstConfiguration = (config.value==="true");
+  constructor(private router:Router){
+    
   }
 
-  setTutorial(tutorial:string){
-    Preferences.set({key: 'tutorial',value: tutorial});
-    this.isTutorial=(tutorial==="true");
-    this.tutorialStatus.next(tutorial==="true");
+  async initialize(){
+    this.isFirstConfiguration = await this.getFirstConfiguration();
   }
 
   setFirstConfiguration(first:string){
     Preferences.set({key: 'first-configuration',value: first});
-    this.isFirstConfiguration=(first==="true");
+    this.isFirstConfiguration = first==="true";
   }
+
+  async getFirstConfiguration():Promise<boolean> {
+    let first:string|null = (await Preferences.get({key: 'first-configuration'})).value;
+    if(first)
+      return first==="true";
+    else
+      return false;
+  }
+
 
 }
